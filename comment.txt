@@ -1,0 +1,13 @@
+
+// Libraries
+
+1) Express.
+2) bcrypt - (hashing the password).
+3) Joi - (validation purposes).
+4) mongoose - (connections to MongoDb and working with it).
+5) joi-objectid - (working with ObjectId in Dtabase).
+6) jsonwebtokens - (working with JWT security).
+7) lodash - (helps write more concise and easier to maintain JavaScript code). Example can be seen on "./routes/user.js". There is done by using const _ = lodash
+8) dotenv - (simplifies job for working with .ENV file).
+9) fawn - (provides the ability to carry out edits on a mongoDB database as a series of steps).
+10) nodemon - (automatically restarts projects).

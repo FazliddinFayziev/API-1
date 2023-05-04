@@ -1,0 +1,25 @@
+{
+  "name": "vidly",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "config": "^3.3.9",
+    "dotenv": "^16.0.3",
+    "express": "^4.16.2",
+    "fawn": "^2.1.5",
+    "joi": "^13.7.0",
+    "joi-objectid": "^4.0.2",
+    "jsonwebtoken": "^9.0.0",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.13.17",
+    "nodemon": "^2.0.22"
+  }
+}
