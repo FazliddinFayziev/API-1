@@ -1,11 +1,14 @@
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
 const express = require('express');
-const jwt = require('jsonwebtoken');
 const router = express.Router();
 const { User, validate } = require('../models/user');
+const auth = require('../middleware/auth');
 
-
+router.get('/me', auth, async (req, res) => {
+    const user = await User.findById(req.user._id).select('-password')
+    res.send(user);
+})
 
 router.post("/", async (req, res) => {
     const { error } = validate(req.body);
@@ -20,7 +23,7 @@ router.post("/", async (req, res) => {
 
     user = await user.save()
 
-    const token = jwt.sign({ _id: user._id }, process.env.VIDLY_JWT_PRIVATE_KEY);
+    const token = user.generateAuthToken()
     res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']));
 })
 

@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const Joi = require('Joi');
+const Joi = require('joi');
+const jwt = require('jsonwebtoken');
+const boolean = require('joi/lib/types/boolean');
 
 
 const UserSchema = new mongoose.Schema({
@@ -16,8 +18,18 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    isAdmin: {
+        type: Boolean
+    },
+    // roles: [],
+    // operations: []
 })
+
+UserSchema.methods.generateAuthToken = function () {
+    const token = jwt.sign({ _id: this._id, isAdmin: this.isAdmin }, process.env.VIDLY_JWT_PRIVATE_KEY);
+    return token;
+}
 
 const User = mongoose.model("User", UserSchema)
 
