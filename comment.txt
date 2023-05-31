@@ -7,7 +7,26 @@
 4) mongoose - (connections to MongoDb and working with it).
 5) joi-objectid - (working with ObjectId in Dtabase).
 6) jsonwebtokens - (working with JWT security).
-7) lodash - (helps write more concise and easier to maintain JavaScript code). Example can be seen on "./routes/user.js". There is done by using const _ = lodash
+7) lodash - (helps write more confidence and easier to maintain JavaScript code). Example can be seen on "./routes/user.js". There is done by using const _ = lodash
 8) dotenv - (simplifies job for working with .ENV file).
 9) fawn - (provides the ability to carry out edits on a mongoDB database as a series of steps).
 10) nodemon - (automatically restarts projects).
+11) winston - helps to handle logging errors or other errors also.
+12) express-async-errors - (
+
+    TWO EXAMPLES
+    1) For Handling the errors with this code (genres.js (GET method exapmle))
+
+    module.exports = function (handler) {
+        return async (res, req, next) => {
+            try {
+                await handler(res, req);
+            } catch (error) {
+                next(error)
+            }
+        }
+    }
+
+    2) Just use express-async-errors npm library
+    Both are the same
+)
